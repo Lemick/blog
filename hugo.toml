@@ -1,0 +1,34 @@
+baseURL = 'https://mickaelb.com/'
+languageCode = 'en-us'
+title = 'Mickael Luv Tech'
+theme = 'nightfall'
+
+
+[params]
+author = "Mickaël Luv Tech"
+user = "mickael"
+hostname = "mickaelb.com"
+footerHtml = 'Made with binary'
+
+[[params.social]]
+key = 0
+name = "posts"
+url = "/post"
+[[params.social]]
+key = 1
+name = "about me"
+url = "/about-me"
+[[params.social]]
+key = 2
+name = "github"
+url = "https://github.com/lemick"
+
+[menu]
+  [[menu.header]]
+    name = "posts"
+    weight = 1
+    url = "/posts"
+  [[menu.header]]
+    name = "about"
+    weight = 0
+    url = "/about-me"

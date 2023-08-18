@@ -1,0 +1,73 @@
+<style>
+    html {
+        font-family: fira sans, sans-serif;
+        font-weight: 300;
+        line-height: 1.5;
+    }
+
+    .content {
+        font-size: 1.2rem;
+    }
+
+    .token.operator {
+        background: transparent !important;
+    }
+
+    pre {
+        background-color: unset !important;
+    }
+
+    .postMetadata {
+        display: none;
+    }
+</style>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&family=Open+Sans:wght@300&display=swap"
+    rel="stylesheet">
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178959108-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-178959108-1');
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+
+<script type='text/javascript'>
+    document.addEventListener('DOMContentLoaded', function () {
+        var mainElements = document.getElementsByClassName('main');
+
+        if (mainElements.length > 0 && window.location.href.match("/post/.+")) {
+            var scriptTag = document.createElement('script');
+            scriptTag.type = 'text/javascript';
+            scriptTag.src = 'https://utteranc.es/client.js';
+            scriptTag.setAttribute('repo', 'lemick/blog-comments');
+            scriptTag.setAttribute('issue-term', 'url');
+            scriptTag.setAttribute('theme', 'github-dark');
+            scriptTag.setAttribute('crossorigin', 'anonymous');
+            scriptTag.async = true;
+
+            mainElements[0].appendChild(scriptTag);
+        }
+    });
+</script>
