@@ -3,7 +3,6 @@ languageCode = 'en-us'
 title = 'Mickael Luv Tech'
 theme = 'nightfall'
 
-
 [params]
 author = "Mickaël Luv Tech"
 user = "mickael"
