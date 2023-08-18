@@ -12,11 +12,11 @@ footerHtml = 'Made with binary'
 [[params.social]]
 key = 0
 name = "posts"
-url = "/post"
+url = "./post"
 [[params.social]]
 key = 1
 name = "about me"
-url = "/about-me"
+url = "./about-me"
 [[params.social]]
 key = 2
 name = "github"
