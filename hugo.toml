@@ -4,10 +4,14 @@ title = 'Mickael Luv Tech'
 theme = 'nightfall'
 
 [params]
-author = "Mickaël Luv Tech"
 user = "mickael"
 hostname = "mickaelb.com"
 footerHtml = 'Made with binary'
+[params.author]
+name = "Mickaël Luv Tech"
+email = ""
+
+
 
 [[params.social]]
 key = 0
