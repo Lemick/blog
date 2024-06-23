@@ -6,7 +6,7 @@ theme = 'nightfall'
 [params]
 user = "mickael"
 hostname = "mickaelb.com"
-footerHtml = 'Made with binary'
+footerHtml = ' '
 [params.author]
 name = "Mickaël Luv Tech"
 email = ""
