@@ -1,6 +1,5 @@
 +++
 title = "How to assert Hibernate SQL statement count in tests"
-description = "How to assert Hibernate SQL statement count in tests"
 
 date = "2022-04-24"
 tags = [

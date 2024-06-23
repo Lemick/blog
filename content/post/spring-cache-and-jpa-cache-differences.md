@@ -1,6 +1,5 @@
 +++
 title = "Spring Cache and JPA Cache differences"
-description = "Spring Cache and JPA Cache differences"
 
 date = "2022-03-17"
 tags = [

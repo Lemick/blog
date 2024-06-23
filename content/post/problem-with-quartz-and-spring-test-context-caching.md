@@ -1,6 +1,5 @@
 +++
 title = "A problem with Quartz and Spring Test Context caching"
-description = "A problem with Quartz and Spring Test Context caching"
 
 date = "2021-06-08"
 tags = [

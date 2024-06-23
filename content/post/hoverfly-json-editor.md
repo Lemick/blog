@@ -1,6 +1,5 @@
 +++
 title = "Simulation Editor UI for Hoverfly"
-description = "Simulation Editor UI for Hoverfly"
 
 date = "2023-04-20"
 tags = [

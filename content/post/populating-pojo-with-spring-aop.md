@@ -1,6 +1,5 @@
 +++
 title = "Populating a POJO property with Spring AOP"
-description = "Populating a POJO property with Spring AOP"
 
 date = "2021-12-27"
 tags = [

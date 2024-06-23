@@ -1,6 +1,5 @@
 +++
 title = "Per-profile Log4j2 configuration with Spring Boot and Maven"
-description = "Per-profile Log4j2 configuration with Spring Boot and Maven"
 
 date = "2020-10-08"
 tags = [

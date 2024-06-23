@@ -1,6 +1,5 @@
 +++
 title = "Injecting version number with Maven and expose it with Spring Actuator"
-description = "Injecting version number with Maven and expose it with Spring Actuator"
 
 date = "2020-09-26"
 tags = [

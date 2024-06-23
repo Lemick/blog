@@ -1,8 +1,39 @@
 <style>
+    @font-face {
+        font-family: 'wotfardregular';
+        src: url('/fonts/wotfard-regular-webfont.eot');
+        src: url('/fonts/wotfard-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/wotfard-regular-webfont.woff2') format('woff2'),
+        url('/fonts/wotfard-regular-webfont.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
     html {
-        font-family: fira sans, sans-serif;
+        font-family: wotfard, sans-serif;
         font-weight: 300;
         line-height: 1.5;
+    }
+
+    h1, h2, h3, h4 {
+        font-family: wotfardregular, "sans-serif";
+        font-weight: 600;
+        color: #a6e22e;
+    }
+
+    .postHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .postTitle {
+        font-family: wotfardregular, "sans-serif";
+    }
+
+    p {
+        font-family: wotfardregular, "sans-serif";
+        font-weight: 400;
     }
 
     .content {
@@ -21,14 +52,6 @@
         display: none;
     }
 </style>
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&family=Open+Sans:wght@300&display=swap"
-    rel="stylesheet">
-
-
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178959108-1"></script>
