@@ -21,15 +21,35 @@
         margin-top: 64px;
     }
 
+    .content {
+        padding: 20px;
+    }
+
+    .headerLinks ul {
+        display: flex;
+        font-size: 16px;
+        gap: 16px;
+
+        @media screen and (max-width: 768px) {
+            font-size: 32px;
+        }
+    }
+
+    .postWrapper {
+        padding: 0;
+    }
+
     .postHeader {
         display: flex;
         align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 16px;
         justify-content: space-between;
     }
 
     .postTitle {
         font-family: wotfardregular, "sans-serif";
-
     }
 
     p {
@@ -128,7 +148,7 @@
     .indexHeader {
         color: #fff;
         font-family: 'Glory', sans-serif;
-        font-size: 90px;
+        font-size: 76px;
         font-weight: 800;
         letter-spacing: 4px;
         text-shadow:
