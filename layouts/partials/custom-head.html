@@ -1,32 +1,4 @@
 <style>
-    @keyframes titleAnimation {
-        0% {
-            transform: translateY(-50px);
-            opacity: 0;
-            -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
-            clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
-        }
-        20% {
-            transform: translateY(0);
-            opacity: 1;
-            -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
-            clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
-        }
-        80% {
-            transform: translateY(0);
-            opacity: 1;
-            -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
-            clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
-        }
-        100% {
-            transform: translateY(50px);
-            opacity: 0;
-            -webkit-clip-path: polygon(100% 0, 100% -0%, 0 100%, 0 100%);
-            clip-path: polygon(100% 0, 100% -0%, 0 100%, 0 100%);
-
-        }
-    }
-
     @font-face {
         font-family: 'wotfardregular';
         src: url('/fonts/wotfard-regular-webfont.eot');
@@ -46,6 +18,7 @@
         font-family: wotfardregular, "sans-serif";
         font-weight: 600;
         color: #a6e22e;
+        margin-top: 64px;
     }
 
     .postHeader {
