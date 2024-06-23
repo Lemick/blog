@@ -1,6 +1,5 @@
-Blog
+# Blog
 
-`git submodule init`
-`git submodule update`
-`hugo server`
+Type `hugo server` to launch
+
 
