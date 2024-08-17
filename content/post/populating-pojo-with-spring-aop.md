@@ -51,7 +51,7 @@ public BlogPostsDTO findAll(
 
 The code is very simple, but the problem is that we will certainly need to return the range applied by the DAO every time the client passes a date filter, so treating it in this method is not a good approach.
 
-It can also be imprecise to return the date range passed in the argument because we could not use this exact same date in the DAO (we may want to round the date to be able to **cache** the request for example).
+It can also be imprecise to return the date range passed in the argument because we could not use this exact same date in the DAO (we may want to round the date is we do not support milliseconds for example).
 
 We can solve this problem easily with Spring AOP. It allows you to add some behavior around methods. First, simply add an interface that declares that you can get and set a date filter on your response:
 ```java 

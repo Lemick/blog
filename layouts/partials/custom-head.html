@@ -9,16 +9,24 @@
         font-style: normal;
     }
 
-    html {
+    html, ul {
         font-family: wotfardregular, sans-serif;
         font-weight: 400;
+    }
+
+    li:not(:last-child) {
+        margin-bottom: 12px;
+    }
+
+    strong {
+        font-weight: 600;
     }
 
     h1, h2, h3, h4 {
         font-family: wotfardregular, "sans-serif";
         font-weight: 600;
         color: #a6e22e;
-        margin-top: 64px;
+        margin-top: 48px;
     }
 
     .content {
@@ -37,6 +45,15 @@
 
     .postWrapper {
         padding: 0;
+    }
+
+    .postWrapper img {
+        border-radius: 16px;
+        max-width: fit-content;
+        object-fit: contain;
+        width: 90%;
+        display: block;
+        margin: 2em auto;
     }
 
     .postHeader {
@@ -73,6 +90,16 @@
     .postMetadata {
         display: none;
     }
+
+    .indexHeader {
+        color: #fff;
+        font-family: 'Glory', sans-serif;
+        font-size: 76px;
+        font-weight: 800;
+        letter-spacing: 4px;
+        text-shadow: calc(-6px * -1) calc(-6px * -1) 0px rgba(166, 226, 46, 0.7),
+        calc(-6px * -2) calc(-6px * -2) 0 rgba(166, 226, 46, 0.5);
+    }
 </style>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -101,6 +128,9 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
+
 
 <script type='text/javascript'>
     document.addEventListener('DOMContentLoaded', function () {
@@ -120,38 +150,3 @@
         }
     });
 </script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const text = document.getElementsByClassName('indexHeader')[0];
-        if (text) {
-            const range = 12;
-
-            function updateShadow(event) {
-                const x = Math.round(event.pageX * range / window.innerWidth) - range / 2;
-                const y = Math.round(event.pageY * range / window.innerHeight) - range / 2;
-
-                document.documentElement.style.setProperty('--x', x + 'px');
-                document.documentElement.style.setProperty('--y', y + 'px');
-            }
-            document.body.addEventListener('mousemove', updateShadow);
-        }
-    });
-</script>
-
-<style>
-    :root {
-        --x: -6px;
-        --y: -6px;
-    }
-
-    .indexHeader {
-        color: #fff;
-        font-family: 'Glory', sans-serif;
-        font-size: 76px;
-        font-weight: 800;
-        letter-spacing: 4px;
-        text-shadow:
-                calc(var(--x) * -1) calc(var(--y) * -1) 0px rgba(166, 226, 46, 0.7);
-    }
-</style>

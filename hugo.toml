@@ -3,6 +3,9 @@ languageCode = 'en-us'
 title = 'Mickael Luv Tech'
 theme = 'nightfall'
 
+[markup.goldmark.renderer]
+unsafe = true
+
 [params]
 user = "mickael"
 hostname = "mickaelb.com"
