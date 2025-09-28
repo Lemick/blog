@@ -1,5 +1,5 @@
 [not_found]
-    other = "NOT FOUND"
+    other = "Not found"
 
 [not_found_desc]
     other = "You just hit a route that doesn't exist..."
