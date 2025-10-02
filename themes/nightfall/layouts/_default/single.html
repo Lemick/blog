@@ -3,13 +3,13 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="postWrapper">
+<div class="post-wrapper">
     <h1>{{ .Title }}</h1>
     {{ if .Description}}
     	<p>{{.Description}}</p>
     {{ end }}
     {{ if .Params.showMetadata | default true }}
-    <section class="postMetadata">
+    <section class="post-metadata">
         <dl>
             {{ with .GetTerms "tags" }}
                 {{ partial "taxonomy/tags.html" . }}

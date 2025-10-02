@@ -1,11 +1,11 @@
 @use "../utils/variables" as v;
 
-.postWrapper {
+.post-wrapper {
     text-align: left;
     padding: 20px;    
 }
 
-.postMetadata {
+.post-metadata {
     font-family: v.$fontCode;
     display: block;
     background: v.$backgroundDarker;

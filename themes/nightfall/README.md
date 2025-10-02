@@ -132,5 +132,5 @@ You can customize the text displayed in footer with `footerHtml` in `[params]` s
 
 ```toml
 [params]
-footerHtml = 'CC-0, Built with <a href="https://gohugo.io" class="footerLink">Hugo</a> and <a href="https://github.com/LordMathis/hugo-theme-nightfall" class="footerLink">Nightfall</a> theme'
+footerHtml = 'CC-0, Built with <a href="https://gohugo.io" class="footer-link">Hugo</a> and <a href="https://github.com/LordMathis/hugo-theme-nightfall" class="footer-link">Nightfall</a> theme'
 ```

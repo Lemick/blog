@@ -35,3 +35,25 @@ $primary-colors: (
     }
 
 }
+
+// CSS Custom Properties
+:root {
+  --text-color: #fff;
+  --font-family: 'Glory', sans-serif;
+  --font-size: 76px;
+  --font-weight: 800;
+  --letter-spacing: 4px;
+
+  /* Shadow offsets */
+  --shadow-offset: 6px;
+  --shadow-offset-large: 8px;
+  --shadow-offset-x: calc(var(--shadow-offset) * -1);
+  --shadow-offset-x-large: calc(var(--shadow-offset-large) * -1);
+  --shadow-offset-xx: calc(var(--shadow-offset) * -2);
+  --shadow-offset-xx-large: calc(var(--shadow-offset-large) * -2);
+
+  /* Shadow colors */
+  --shadow-color: rgba(166, 226, 46, 0.5);
+  --shadow-color-light: rgba(166, 226, 46, 0.3);
+  --header-animation-duration: .5s
+}

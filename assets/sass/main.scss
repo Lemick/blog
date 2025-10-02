@@ -61,13 +61,13 @@ h1, h2, h3, h4 {
   padding: 20px;
 }
 
-.headerLinks ul {
+.header-links ul {
   display: flex;
   font-size: 16px;
   gap: 16px;
 }
 
-.postWrapper {
+.post-wrapper {
   padding: 0;
 
   @media screen and (max-width: 768px) {
@@ -75,7 +75,7 @@ h1, h2, h3, h4 {
   }
 }
 
-.postWrapper img {
+.post-wrapper img {
   border-radius: 16px;
   max-width: fit-content;
   object-fit: contain;
@@ -84,7 +84,7 @@ h1, h2, h3, h4 {
   margin: 2em auto;
 }
 
-.postHeader {
+.post-header {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -93,7 +93,7 @@ h1, h2, h3, h4 {
   justify-content: space-between;
 }
 
-.postTitle {
+.post-title {
   font-family: wotfardregular, "sans-serif";
 }
 
@@ -115,11 +115,11 @@ pre {
   background-color: unset !important;
 }
 
-.postMetadata {
+.post-metadata {
   display: none;
 }
 
-.indexHeader {
+.index-header {
   color: var(--text-color);
   font-family: var(--font-family);
   font-size: var(--font-size);

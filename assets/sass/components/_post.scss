@@ -1,11 +1,11 @@
 @use "../utils/variables" as v;
 
-.postDate {
+.post-date {
   float: right;
   color: v.$white;
 }
 
-.postTitle {
+.post-title {
   
   @include v.primary-color;
 
@@ -16,37 +16,37 @@
   float: left;
 }
 
-.postHeader {
+.post-header {
   overflow: hidden;
 }
 
-.postsList {
+.posts-list {
   margin-top: 20px;
 }
 
-.postListItem {
+.post-list-item {
   padding: 20px;
   background-color: v.$black;
   margin-bottom: 20px;
   border-radius: 12px;
 }
 
-.postListLink:hover {
+.post-list-link:hover {
   text-decoration: none;
 }
 
-.postExcerpt {
+.post-excerpt {
   text-align: initial;
   text-decoration: none;
   color: v.$white;
 }
 
-.headerContainer {
+.header-container {
   display: flex;
   justify-content: space-between;
 }
 
-.noDecoration {
+.no-decoration {
   text-decoration: none;
 }
 
