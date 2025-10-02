@@ -11,17 +11,13 @@
   <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" >
 {{- end -}}
 
-{{ $vars := dict
-  "color" (or site.Params.styles.color "blue")
-}}
+{{/* Map site param color to a hex; fallback to provided value */}}
+{{ $primaryMap := dict "blue" "#80AADD" "orange" "#FFB300" "green" "#33D17A" "red" "#F26E74" }}
+{{ $colorKey := or site.Params.styles.color "blue" }}
+{{ $primary := or (index $primaryMap $colorKey) $colorKey }}
 
-{{ $options := dict
-  "targetPath" "css/style.css"
-  "transpiler" "dartsass"
-  "vars" $vars
-}}
-
-{{ $style := resources.Get "sass/main.scss" | toCSS $options | minify | fingerprint }}
-<link href="{{ $style.RelPermalink }}" rel="stylesheet">
+{{ $css := resources.Get "css/main.css" | minify | fingerprint }}
+<style>:root{--primary-color: {{ $primary }};}</style>
+<link href="{{ $css.RelPermalink }}" rel="stylesheet">
 
 {{ partial "custom-head.html" . }}
