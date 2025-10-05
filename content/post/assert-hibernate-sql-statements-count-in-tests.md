@@ -28,25 +28,25 @@ Let's demonstrate it! I will use a ```BlogPost``` and a ```PostComment``` entity
 @NoArgsConstructor
 public class BlogPost {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "blogPost",
-               cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<PostComment> postComments;
+@OneToMany(fetch = FetchType.LAZY, mappedBy = "blogPost",
+           cascade = CascadeType.ALL, orphanRemoval = true)
+private List<PostComment> postComments;
 
-    private String title;
+private String title;
 
-    public BlogPost(String title) {
-        this.postComments = new ArrayList<>();
-        this.title = title;
-    }
+public BlogPost(String title) {
+    this.postComments = new ArrayList<>();
+    this.title = title;
+}
 
-    public void addComment(PostComment postComment) {
-        postComment.setBlogPost(this);
-        this.postComments.add(postComment);
-    }
+public void addComment(PostComment postComment) {
+    postComment.setBlogPost(this);
+    this.postComments.add(postComment);
+}
 }
 ```
 
@@ -56,16 +56,16 @@ public class BlogPost {
 @NoArgsConstructor
 public class PostComment {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    BlogPost blogPost;
+@ManyToOne(fetch = FetchType.LAZY)
+BlogPost blogPost;
 
-    private String content;
+private String content;
 
-    public PostComment(String content) {
+public PostComment(String content) {
         this.content = content;
     }
 }
@@ -75,23 +75,23 @@ public class PostComment {
 
 The following integration test will verify that 6 SQL Insert statements are going to be generated. This annotation will also ensure that 0 Update, 0 Select and 0 Delete are executed since we specified nothing:
 ```java
-    @Test
-    @Transactional
-    @Commit
-    @AssertHibernateSQLCount(inserts = 6)
-    void create_three_blog_posts() {
-        BlogPost post_1 = new BlogPost("Blog post 1");
-        post_1.addComment(new PostComment("Good article"));
-        blogPostRepository.save(post_1);
+@Test
+@Transactional
+@Commit
+@AssertHibernateSQLCount(inserts = 6)
+void create_three_blog_posts() {
+    BlogPost post_1 = new BlogPost("Blog post 1");
+    post_1.addComment(new PostComment("Good article"));
+    blogPostRepository.save(post_1);
 
-        BlogPost post_2 = new BlogPost("Blog post 2");
-        post_2.addComment(new PostComment("Nice"));
-        blogPostRepository.save(post_2);
+    BlogPost post_2 = new BlogPost("Blog post 2");
+    post_2.addComment(new PostComment("Nice"));
+    blogPostRepository.save(post_2);
 
-        BlogPost post_3 = new BlogPost("Blog post 3");
-        post_3.addComment(new PostComment("Coooool"));
-        blogPostRepository.save(post_3);
-    }
+    BlogPost post_3 = new BlogPost("Blog post 3");
+    post_3.addComment(new PostComment("Coooool"));
+    blogPostRepository.save(post_3);
+}
 ```
 
 You can guess that these inserts are not batched in my case, if the assertion *is not valid*, a message containing the executed SQL statements is shown:
@@ -110,31 +110,31 @@ Expected 3 INSERT but got 6:
 
 N+1 Select (which is a 1+N Select in reality), is a common problem that often comes from fetching manually lazy childs associations, a simple test can detect that all blog posts and their comments are fetched **in one Select**, preventing huge regressions:
 ```java
-    @Test
-    @Transactional
-    @AssertHibernateSQLCount(selects = 1)  // <= This will warn you if you're triggering N+1 SELECT
-    void fetch_post_and_comments_with_one_select() {
-        blogPostRepository.findBlogPostWithComments().forEach(blogPost ->
-                assertEquals(1, blogPost.getPostComments().size(), 
-                "all blog posts have one comment")
-        );
-    }
+@Test
+@Transactional
+@AssertHibernateSQLCount(selects = 1)  // <= This will warn you if you're triggering N+1 SELECT
+void fetch_post_and_comments_with_one_select() {
+    blogPostRepository.findBlogPostWithComments().forEach(blogPost ->
+            assertEquals(1, blogPost.getPostComments().size(), 
+            "all blog posts have one comment")
+    );
+}
 ```
 
 ## HTTP integration test
 
 It's not mandatory for your test to be transactional, counting SQL queries within HTTP integration tests is supported. Here we verify that our HTTP POST generated 1 SQL Insert:
 ```java
-    @Test
-    @AssertHibernateSQLCount(inserts = 1)
-    void create_one_entity_from_endpoint() {
-        BlogPost requestBody = new BlogPost("My new blog post");
+@Test
+@AssertHibernateSQLCount(inserts = 1)
+void create_one_entity_from_endpoint() {
+    BlogPost requestBody = new BlogPost("My new blog post");
 
-        BlogPost responseBody = restTemplate.postForObject("/blogPosts", requestBody, BlogPost.class);
+    BlogPost responseBody = restTemplate.postForObject("/blogPosts", requestBody, BlogPost.class);
 
-        assertEquals("My new blog post", responseBody.getTitle(), 
-        "The blog post created is returned");
-    }
+    assertEquals("My new blog post", responseBody.getTitle(), 
+    "The blog post created is returned");
+}
 ```
 
 ## Comparison with JDBC Datasource-Proxy
@@ -143,15 +143,15 @@ I've found that all the existing implementations of Hibernate SQL statements ass
 For example, the assert-tooling coming with datasource-proxy lib is based on static calls, which can lead to a test like this:
 
 ```java
-    @Test
-    @Transactional
-    void _test_with_datasource_proxy() {
-        BlogPost post = blogPostRepository.findById(1L);
-        post.setTitle("New title for blog post 1");
+@Test
+@Transactional
+void _test_with_datasource_proxy() {
+    BlogPost post = blogPostRepository.findById(1L);
+    post.setTitle("New title for blog post 1");
 
-        entityManager.flush(); 
-        assertUpdateStatements(1L);
-    }
+    entityManager.flush(); 
+    assertUpdateStatements(1L);
+}
 ```
 
 The drawback is that you need to flush explicitly since Hibernate's write-behind mechanism will try to defer the execution of the update event to the end of your transaction, which is unfortunately out of your reach, after the end of your test method. This drawback is minimized if you're only testing methods that are already wrapped with ```@Transactional``` though.

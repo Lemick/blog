@@ -41,16 +41,14 @@
   --blog-background-dark: #292a2d;
 
   /* Typography */
-  --font-header: 'Fira Mono', monospace;
-  --font-paragraph: 'Open Sans', sans-serif;
+  --font-main: 'wotfardregular', sans-serif;
   --font-code: 'Fira Mono', monospace;
 
   /* Layout */
-  --content-width: 760px;
+  --content-width: 750px;
 
   /* Shadows and display */
   --text-color: #fff;
-  --font-family: 'Glory', sans-serif;
   --font-size: 76px;
   --font-weight: 800;
   --letter-spacing: 4px;
@@ -66,7 +64,7 @@
 }
 
 body {
-  font-family: var(--font-paragraph);
+  font-family: var(--font-main);
   color: var(--blog-white);
   background-color: var(--blog-background-dark);
   margin: 0;
@@ -75,13 +73,9 @@ body {
   min-height: 100vh;
 }
 
-a {
-  color: var(--primary-color);
-}
-
 pre code {
   font-family: var(--font-code);
-  font-size: 75%;
+  font-size: 95% !important;
   display: block;
   background: var(--blog-background-darker);
   padding: 10px;
@@ -90,25 +84,25 @@ pre code {
 
 code {
   font-family: var(--font-code);
-  font-size: 75%;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-header);
 }
 
 @-ms-viewport {
   width: device-width;
 }
 
+.post-wrapper a {
+  color: var(--text-color);
+  text-decoration: underline !important;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+
 html {
   font-family: wotfardregular, sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   font-weight: 400;
 }
 
@@ -125,7 +119,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: wotfardregular, "sans-serif";
+  font-family: var(--font-main);
   font-weight: 600;
   color: var(--blog-green);
   margin-top: 48px;
@@ -133,7 +127,6 @@ h4 {
 
 .content {
   padding: 20px;
-  font-size: 1.2rem;
 }
 
 .header-links ul {
@@ -186,6 +179,8 @@ p {
 
 pre {
   background-color: unset !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 .post-metadata {
@@ -194,7 +189,7 @@ pre {
 
 .index-header {
   color: var(--text-color);
-  font-family: var(--font-family);
+  font-family: Glory, sans-serif;
   font-size: var(--font-size);
   font-weight: var(--font-weight);
   letter-spacing: var(--letter-spacing);
@@ -204,7 +199,7 @@ pre {
 
 /* Header */
 .header {
-  font-family: var(--font-header);
+  font-family: var(--font-main);
   padding: 0 20px;
   height: 60px;
   display: flex;
